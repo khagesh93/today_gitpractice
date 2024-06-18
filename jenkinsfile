@@ -1,14 +1,17 @@
 pipeline {
     agent any
+    
     environment {
-          docker_user = dockeruser
-          docker_passwd = dockerpass
+        docker_user = 'dockeruser'
+        docker_passwd = 'dockerpass'
+    }
+    
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World' 
-                echo 'env.docker_usr'
-                echo 'env.docker_passwd'
+                echo 'Hello World'
+                echo "Docker Username: ${env.docker_user}"
+                echo "Docker Password: ${env.docker_passwd}"
             }
         }
     }
